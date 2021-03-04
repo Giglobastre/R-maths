@@ -65,11 +65,16 @@ erreur = var_exacte - diff_fx0y0
 
 #ex 5.4.1
 rm(list=ls())
-fctz <- function(x,y) z = x^2 - 3 * x^3 * y^2 + 4 * x - 2 * y^2
-fcty <- function(t) y = 3 * t^2 + 2 * t + 1
-fctx <- function(t) x = t^2 + 3 * t - 2
-#suite ?
-
+y <- function(t) y = 3 * t^2 + 2 * t + 1
+x <- function(t) x = t^2 + 3 * t - 2
+fctz <- function(t) z = x(t)^2 - 3 * x(t)^3 * y(t)^2 + 4 * x(t) - 2 * y(t)^2
+fctz2 <- function(t) z2 = 
+  (t^2 + 3 * t - 2)^2 -3 *
+  (t^2 + 3 * t - 2)^3 * (3 * t^2 + 2 * t + 1)^2 + 4 *
+  (t^2 + 3 * t - 2) - 2 * (3 * t^2 + 2 * t + 1)^2
+return(z2)
+curve(fctz2, from =-10, to = 10)
+a=D(expression(fctz2),"t")
 #ex 5.4.3
 
 
